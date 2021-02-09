@@ -70,13 +70,13 @@ class TrainConfig(Config):
     NUM_CLASSES = 1 + 3  # Background + mammography_classes
 
     # Number of epochs for training
-    EPOCHS = 1
+    EPOCHS = 50
 
     # Number of training steps per epoch
-    STEPS_PER_EPOCH = 100
+    STEPS_PER_EPOCH = 50
 
     # Skip detections with < 90% confidence
-    DETECTION_MIN_CONFIDENCE = 0.9
+    DETECTION_MIN_CONFIDENCE = 0.8
 
 
 ############################################################
@@ -134,7 +134,7 @@ class GrapeDataset(utils.Dataset):
         """
         # If not a grape dataset image, delegate to parent class.
         image_info = self.image_info[image_id]
-        if image_info["source"] != "grape":
+        if image_info["source"] != "mammography":
             return super(self.__class__, self).load_mask(image_id)
 
         # load the masks directly
@@ -150,7 +150,7 @@ class GrapeDataset(utils.Dataset):
     def image_reference(self, image_id):
         """Return the path of the image."""
         info = self.image_info[image_id]
-        if info["source"] == "grape":
+        if info["source"] == "mammography":
             return info["path"]
         else:
             super(self.__class__, self).image_reference(image_id)
