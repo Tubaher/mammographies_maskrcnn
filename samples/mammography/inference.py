@@ -130,9 +130,6 @@ if __name__ == '__main__':
     # Parse command line arguments
     parser = argparse.ArgumentParser(
         description='Splash Mask R-CNN to detect mammographies.')
-    parser.add_argument('--dataset', required=False,
-                        metavar="/path/to/Mamo/dataset/",
-                        help='Directory of the Mamo dataset')
     parser.add_argument('--weights', required=True,
                         metavar="/path/to/weights.h5",
                         help="Path to weights .h5 file or 'coco'")
@@ -151,7 +148,6 @@ if __name__ == '__main__':
         "Provide --image to apply color splash"
 
     print("Weights: ", args.weights)
-    print("Dataset: ", args.dataset)
     print("Logs: ", args.logs)
 
     # Configurations
