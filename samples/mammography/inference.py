@@ -143,9 +143,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    # Validate arguments
-    assert args.image \
-        "Provide --image to apply color splash"
+
 
     print("Weights: ", args.weights)
     print("Logs: ", args.logs)
