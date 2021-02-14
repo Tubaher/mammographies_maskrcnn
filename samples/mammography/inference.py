@@ -99,7 +99,7 @@ def color_splash(image, mask):
     return splash
 
 
-def detect_and_color_splash(model, image_path=None, video_path=None):
+def detect_and_color_splash(model, image_path=None):
     assert image_path or video_path
 
     # Image or video?
@@ -181,5 +181,4 @@ if __name__ == '__main__':
     else:
         model.load_weights(weights_path, by_name=True)
 
-    detect_and_color_splash(model, image_path=args.image,
-                            video_path=args.video)
+    detect_and_color_splash(model, image_path=args.image)
