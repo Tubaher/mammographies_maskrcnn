@@ -140,6 +140,8 @@ class GrapeDataset(utils.Dataset):
         # load the masks directly
         mask_path=image_info["mask_path"]
         mask = np.load(mask_path)['arr_0']
+        mask = mask[:,:,0]
+        mask = mask[..., np.newaxis]
 
         # load the class_id
         class_id = image_info["class_id"] 
